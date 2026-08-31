@@ -139,6 +139,19 @@ button { cursor: pointer; background: none; border: 0; }
 .section-deep { background: var(--brand-deep); color: var(--sand-100); }
 .section-deep h2, .section-deep h3, .section-deep h4 { color: var(--ivory); }
 
+/* Visually-hidden (a11y) — accessible label off-screen, not display:none */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ---------- 3. Reveal motion ---------- */
 .reveal {
   opacity: 0;
@@ -818,6 +831,37 @@ button { cursor: pointer; background: none; border: 0; }
 .cta-banner p { color: rgba(255, 255, 255, 0.85); max-width: 560px; margin: 0 auto 1.4em; }
 .cta-banner .btn-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center; }
 
+/* Volunteer CTA band — full-bleed image band with dark overlay */
+.volunteer-band {
+  position: relative;
+  padding: 6rem 0;
+  overflow: hidden;
+  text-align: center;
+  isolation: isolate;
+}
+.volunteer-band-bg {
+  position: absolute;
+  inset: 0;
+}
+.volunteer-band-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.volunteer-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(9, 32, 23, 0.78) 0%, rgba(9, 32, 23, 0.55) 50%, rgba(9, 32, 23, 0.82) 100%);
+}
+.volunteer-band-inner {
+  position: relative;
+  z-index: 1;
+  color: var(--ivory);
+}
+.volunteer-band-inner h2 { color: var(--ivory); }
+.volunteer-band-inner p { color: rgba(255, 255, 255, 0.88); max-width: 620px; margin: 0 auto 1.6em; }
+.volunteer-band-inner .hero-actions { justify-content: center; }
+
 /* ---------- 17. Forms ---------- */
 .form-card {
   background: var(--surface);
@@ -1094,6 +1138,7 @@ button { cursor: pointer; background: none; border: 0; }
   .timeline-date { flex-direction: row; justify-content: flex-start; gap: 0.8rem; padding: 1rem 1.4rem; }
   .timeline-content { padding: 1.2rem 1.4rem; }
   .hero-actions .btn { width: 100%; }
+  .volunteer-band { padding: 4rem 0; }
   .newsletter-form { flex-direction: column; }
   .media-frame .float-chip { right: 0; bottom: -18px; }
 }
